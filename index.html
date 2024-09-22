@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <button class="container" onclick="sendRequest(5,100)">
+    animation colored Border
+  </button>
+
+  
+</body>
+<script src="index.js"></script>
+<script>
+  let number  = 1;
+ async function sendRequest(control , channel) {
+  const response  =  fetch(`http://192.168.1.101:3781/trigger_midi?control=${number}&value=${channel}`);
+  console.log(response);
+  if (number < 5) {
+    number+=1;
+  } else {
+    number = 1
+  }
+ }
+</script>
+</html>
